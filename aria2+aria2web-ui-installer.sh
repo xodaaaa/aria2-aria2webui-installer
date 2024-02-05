@@ -103,4 +103,4 @@ systemctl start webui-aria2
 echo "Instalación completada: git, curl, nodejs, htop, aria2 instalados, repositorio clonado, directorios /etc/aria2 y /Disk creados, configuración de aria2 y servicios systemd actualizados. Servicios Aria2 y WebUI Aria2 habilitados y comenzados."
 
 # Mensaje final
-echo "Para acceder al Web UI de Aria2, abre tu navegador y visita tu IP en el puerto 8888. También, recuerda incluir el RPC si no has configurado tu el rpc secreto prederminadamente es SomethingSecure recuerda que es donde dice "Enter the secret token (optional)"
+echo "Para acceder al Web UI de Aria2, abre tu navegador y visita tu IP en el puerto 8888. También, recuerda incluir el RPC si no has configurado tu el rpc secreto prederminadamente es SomethingSecure recuerda que es donde dice Enter the secret token (optional)"

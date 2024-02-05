@@ -1,4 +1,5 @@
-# ARIA2+ARIA2WEBUIINSTALLER
+# ARIA2+WEBUI-ARIA2 INSTALLER
+
 #   Principalmente el script fue echo para debian LXC
 
 

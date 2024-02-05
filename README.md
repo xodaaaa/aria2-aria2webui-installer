@@ -24,6 +24,12 @@
 
 
 
+#   ALIST (ADDONS)
+#   Alist+passwordchange
+
+#   LO QUE HACE ESTE SCRIPT ES DESCARGAR E INSTALAR ADEMAS DE CAMBIAR LA CONTRASEÑA DE ALIST
+#   LA CONTRASEÑA PREDETERMINADA PASA A SER SomethingSecure
+
 
 #   Idea basada en 
 
@@ -35,3 +41,10 @@
 
 
 #   https://github.com/aria2/aria2
+
+
+#   PARA MAS INFORMACION SOBRE ALIST 
+
+#   https://alist.nn.ci/
+
+#  https://github.com/alist-org/alist

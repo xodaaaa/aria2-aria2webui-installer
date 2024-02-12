@@ -1,4 +1,9 @@
 #!/bin/bash
+# Instalar paquetes necesarios
+echo "Instalando paquetes necesarios: git, curl, nodejs, htop, aria2..."
+apt install -y git curl nodejs htop aria2
+echo "Paquetes instalados."
+sleep 10
 
 # Descarga el script desde la URL y ejecuta el comando con el argumento "install"
 echo "Descargando e instalando desde la URL..."

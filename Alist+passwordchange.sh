@@ -1,7 +1,7 @@
 #!/bin/bash
 # Instalar paquetes necesarios
-echo "Instalando paquetes necesarios: git, curl, nodejs, htop, aria2..."
-apt install -y git curl nodejs htop aria2
+echo "Instalando paquetes necesarios: git, curl, htop..."
+apt install -y git curl htop
 echo "Paquetes instalados."
 sleep 10
 

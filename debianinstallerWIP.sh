@@ -12,26 +12,42 @@ echo "Iniciando la instalación..."
 echo "Actualizando el sistema..."
 apt update
 echo "Sistema actualizado."
-sleep 10
+sleep 5
 
 # Instalar paquetes necesarios
 echo "Instalando paquetes necesarios: git, curl, nodejs, htop, aria2..."
 apt install -y git curl nodejs htop aria2
 echo "Paquetes instalados."
-sleep 10
+sleep 5
 
 # Clonar el repositorio webui-aria2 desde GitHub en /home
 echo "Clonando el repositorio webui-aria2 desde GitHub..."
 git clone https://github.com/ziahamza/webui-aria2.git /home/webui-aria2
 echo "Repositorio clonado en /home/webui-aria2."
-sleep 10
+sleep 5
 
 # Crear directorios necesarios
 echo "Creando directorios necesarios: /etc/aria2, /home/Disk..."
 mkdir /etc/aria2 -p
 mkdir /home/Disk -p
+mkdir /home/a-wa-a/local -p
+mkdir /home/a-wa-a/Torrent -p
+
 echo "Directorios creados."
-sleep 10
+sleep 5
+
+# Crear la carpeta Incompletas en /home
+echo "Creando la carpeta /home/Incompletas..."
+mkdir -p /home/Incompletas
+echo "Carpeta /home/Incompletas creada."
+sleep 5
+
+# Crear un archivo de texto vacío session.txt en /home/Incompletas
+echo "Creando el archivo /home/Incompletas/session.txt..."
+touch /home/Incompletas/session.txt
+echo "Archivo /home/Incompletas/session.txt creado."
+sleep 5
+
 
 # Editar el archivo aria2.conf
 echo "Editando el archivo aria2.conf..."
@@ -40,9 +56,15 @@ enable-rpc=true
 rpc-allow-origin-all=true
 rpc-listen-all=true
 rpc-listen-port=6800
-rpc-secret=SomethingSecure" > /etc/aria2/aria2.conf
+rpc-secret=SomethingSecure
+save-session=/home/Incompletas/session.txt
+continue=true
+input-file=/home/Incompletas/session.txt
+seed-ratio=1.0
+--max-download-result=300" > /etc/aria2/aria2.conf
 echo "Configuración de aria2 actualizada."
-sleep 10
+sleep 5
+
 
 # Editar el archivo aria2.service
 echo "Editando el archivo aria2.service..."
@@ -57,7 +79,7 @@ ExecStart=/usr/bin/aria2c --conf-path=/etc/aria2/aria2.conf
 [Install]
 WantedBy=default.target" > /etc/systemd/system/aria2.service
 echo "Archivo de servicio Aria2 actualizado."
-sleep 10
+sleep 5
 
 # Editar el archivo webui-aria2.service
 echo "Editando el archivo webui-aria2.service..."
@@ -74,13 +96,13 @@ User=root
 [Install]
 WantedBy=multi-user.target" > /etc/systemd/system/webui-aria2.service
 echo "Archivo de servicio WebUI Aria2 actualizado."
-sleep 10
+sleep 5
 
 # Recargar systemd para aplicar los cambios
 echo "Recargando systemd para aplicar los cambios..."
 systemctl daemon-reload
 echo "Systemd recargado."
-sleep 10
+sleep 5
 
 # Verificar si los servicios están en uso
 echo "Verificando si los servicios están en uso..."
@@ -90,7 +112,7 @@ if systemctl is-active --quiet aria2 || systemctl is-active --quiet webui-aria2;
     systemctl restart aria2
     systemctl restart webui-aria2
     echo "Servicios reiniciados."
-    sleep 10
+    sleep 5
 fi
 
 # Habilitar y empezar los servicios
